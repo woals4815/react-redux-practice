@@ -3,12 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createStore } from "redux";
-import roodReducer from "./modules";
+import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+import rootReducer from "./modules";
+import { createLogger } from "redux-logger";
+import ReduxThunk from "redux-thunk";
 
-const store = createStore(roodReducer, composeWithDevTools());
+const logger = createLogger();
+const store = createStore(rootReducer, applyMiddleware(logger, ReduxThunk));
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,10 +1,8 @@
 import { combineReducers } from "redux";
 import counter from "./counter";
-import todos from "./todos";
 
-const roodReducer = combineReducers({
+const rootReducer = combineReducers({
   counter,
-  todos,
 });
 
-export default roodReducer;
+export default rootReducer;
